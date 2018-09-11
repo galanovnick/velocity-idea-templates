@@ -1,0 +1,10 @@
+#set( $TestElementName = "$NAME.split('_')[0]" )
+
+#set( $PathToElementSrc = "" )
+#set( $_PackageName = "" )
+#set( $part = "" )
+#foreach($part in $PACKAGE_NAME.split("\."))
+  #set( $PathToElementSrc = "${PathToElementSrc}../" )
+  #set( $_PackageName = "${_PackageName}#if( $foreach.count > 1 )$part/#end" )
+#end
+#set ($PathToElementSrc = "${PathToElementSrc}src/${_PackageName}${TestElementName}.html")

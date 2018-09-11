@@ -1,0 +1,39 @@
+#set ( $PathToBower = "" )
+#set ( $TestElementName = "" )
+#set ( $PathToElementSrc = "" )
+#parse('Path to Bower components')
+#parse('Polymer element test variables')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>${TestElementName} test</title>
+
+    <script src="${PathToBower}/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="${PathToBower}/web-component-tester/browser.js"></script>
+
+    <link rel="import" href="${PathToBower}/iron-test-helpers/mock-interactions.html">
+    <link rel="import" href="${PathToElementSrc}">
+</head>
+<body>
+<test-fixture id="main">
+    <template>
+        <${TestElementName}></${TestElementName}>
+    </template>
+</test-fixture>
+
+<script>
+    suite('${TestElementName}', () => {
+
+        test('should instantiate the element', () => {
+            const element = fixture('main');
+            expect(element.constructor.is).to.eql('${TestElementName}');
+        });
+    });
+</script>
+</body>
+</html>
+

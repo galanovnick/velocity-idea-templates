@@ -1,0 +1,27 @@
+#set ( $PathToBower = "" )
+#set ( $CamelCaseName = "" )
+#parse('Path to Bower components')
+#parse('Kebab name to CamelCase')
+<link rel="import" href="${PathToBower}/polymer/polymer-element.html">
+
+<dom-module id="${NAME}">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+  </template>
+  
+  <script>
+    /**
+     * An element description goes here.
+     */
+    class ${CamelCaseName} extends Polymer.Element {
+      static get is() {
+        return '${NAME}';
+      }
+    }
+    window.customElements.define(${CamelCaseName}.is, ${CamelCaseName});
+  </script>
+</dom-module>

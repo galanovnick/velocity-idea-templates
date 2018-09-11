@@ -1,0 +1,6 @@
+#set( $PathToBower = "" )
+#set( $part = "" )
+#foreach($part in $PACKAGE_NAME.split("\."))
+  #set( $PathToBower = "${PathToBower}../" )
+#end
+#set ($PathToBower = "${PathToBower}bower_components")
